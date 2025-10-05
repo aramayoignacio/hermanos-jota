@@ -1,0 +1,21 @@
+Para probar el Backend:
+
+npm run dev
+
+Probar endpoints:
+
+   # Obtener todos los productos
+   curl http://localhost:3001/api/productos
+
+   # Obtener producto específico
+   curl http://localhost:3001/api/productos/1
+
+   # Obtener productos por categoría
+   curl "http://localhost:3001/api/productos?categoria=sillas"
+
+   # Probar ruta no encontrada
+   curl http://localhost:3001/api/categorias
+
+Para probar el Front:
+
+npm start
