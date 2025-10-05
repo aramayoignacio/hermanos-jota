@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermanos Jota - Muebles Artesanales | Buenos Aires</title>
+    <meta name="description" content="Descubre muebles artesanales únicos que honran la tradición y abrazan el futuro. Madera certificada FSC, diseño sustentable, garantía de por vida.">
+    <meta name="keywords" content="muebles artesanales, muebles sustentables, madera FSC, diseño argentino, mobiliario premium">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --siena-tostado: #A0522D;
+            --verde-salvia: #87A96B;
+            --alabastro-calido: #F5E6D3;
+            --vara-oro: #D4A437;
+            --rosa-polvoriento: #C47A6D;
+            --texto-oscuro: #2c2c2c;
+            --texto-claro: #666;
+            
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-secondary: 'Playfair Display', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            background-color: var(--alabastro-calido);
+        }
+
+        /* Header */
+        .header {
+            background: var(--alabastro-calido);
+            box-shadow: 0 2px 15px rgba(160, 82, 45, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--siena-tostado);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-menu a:hover {
+            color: var(--siena-tostado);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--siena-tostado);
+            font-size: 1.2rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--vara-oro);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--siena-tostado);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--alabastro-calido) 0%, #f0e1cc 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="25" cy="25" r="1" fill="%23A0522D" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="%23A0522D" opacity="0.03"/><circle cx="50" cy="10" r="0.5" fill="%23A0522D" opacity="0.02"/><circle cx="10" cy="60" r="0.5" fill="%23A0522D" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.6;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-secondary);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--siena-tostado);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--texto-claro);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: var(--siena-tostado);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #8b4424;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(160, 82, 45, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--siena-tostado);
+            border: 2px solid var(--siena-tostado);
+        }
+
+        .btn-secondary:hover {
+            background: var(--siena-tostado);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-furniture {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            background: linear-gradient(45deg, var(--siena-tostado), #8b4424);
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(160, 82, 45, 0.3);
+            overflow: hidden;
+        }
+
+        .hero-furniture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom, var(--vara-oro), transparent);
+            opacity: 0.3;
+        }
+
+        .hero-furniture::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            height: 40px;
+            background: var(--verde-salvia);
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 2.8rem;
+            color: var(--siena-tostado);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--texto-claro);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(160, 82, 45, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(160, 82, 45, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--alabastro-calido), var(--rosa-polvoriento));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            right: 20%;
+            bottom: 30%;
+            background: var(--siena-tostado);
+            border-radius: 8px;
+            opacity: 0.8;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            right: 30%;
+            bottom: 20%;
+            background: var(--vara-oro);
+            border-radius: 4px;
+            opacity: 0.6;
+        }
+
+        .sustainability-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--verde-salvia);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-family: var(--font-secondary);
+            font-size: 1.4rem;
+            color: var(--siena-tostado);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--texto-claro);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--vara-oro);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.85rem;
+            flex: 1;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--texto-oscuro);
+        }
+
+        .about-text .highlight {
+            color: var(--siena-tostado);
+            font-weight: 500;
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(160, 82, 45, 0.08);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            color: var(--verde-salvia);
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            color: var(--siena-tostado);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-description {
+            font-size: 0.9rem;
+            color: var(--texto-claro);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(160, 82, 45, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--siena-tostado);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--verde-salvia);
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            color: var(--siena-tostado);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            space-y: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(160, 82, 45, 0.05);
+        }
+
+        .contact-item i {
+            color: var(--verde-salvia);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-item-content h4 {
+            color: var(--siena-tostado);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .contact-item-content p {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--siena-tostado);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-secondary);
+            margin-bottom: 1rem;
+            color: var(--alabastro-calido);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(245, 230, 211, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--alabastro-calido);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(245, 230, 211, 0.1);
+            border-radius: 50%;
+            color: var(--alabastro-calido);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--alabastro-calido);
+            color: var(--siena-tostado);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 230, 211, 0.2);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(245, 230, 211, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-family: var(--font-secondary);
+            color: var(--siena-tostado);
+            font-size: 1.5rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--texto-claro);
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            background: var(--alabastro-calido);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--siena-tostado);
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            color: var(--texto-oscuro);
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-price {
+            color: var(--vara-oro);
+            font-weight: 600;
+        }
+
+        .cart-total {
+            padding: 2rem;
+            border-top: 2px solid var(--alabastro-calido);
+            background: #f9f9f9;
+        }
+
+        .cart-total-amount {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--siena-tostado);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--alabastro-calido);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-values {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#inicio" class="logo">HERMANOS JOTA</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <div class="cart-icon" id="cart-toggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>EL ARTE DE CREAR MUEBLES QUE ALIMENTAN EL ALMA</h1>
+                <p class="hero-subtitle">Donde la herencia se encuentra con la innovación</p>
+                <p class="hero-description">
+                    Cada pieza cuenta la historia de manos expertas y materiales nobles. 
+                    Redescubrimos el arte olvidado de crear muebles que no solo sirven una función, 
+                    sino que se convierten en legado para las generaciones futuras.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#productos" class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        Ver Colección
+                    </a>
+                    <a href="#nosotros" class="btn btn-secondary">
+                        <i class="fas fa-heart"></i>
+                        Nuestra Historia
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-furniture"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="section section-alt">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">NUESTRA COLECCIÓN</h2>
+                <p class="section-subtitle">
+                    Piezas únicas que combinan tradición artesanal con diseño contemporáneo. 
+                    Cada mueble es una inversión en calidad, belleza y sustentabilidad.
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">FSC</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mesa Artesanal "Herencia"</h3>
+                        <p class="product-description">
+                            Madera de algarrobo certificada FSC, acabado con aceite de lino natural. 
+                            Una pieza que envejece con gracia y desarrolla carácter único.
+                        </p>
+                        <div class="product-price">$285,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Mesa Artesanal Herencia" 
+                                    data-price="285000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">FSC</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Silla "Nostalgia Moderna"</h3>
+                        <p class="product-description">
+                            Quebracho argentino con terminación en cera de abejas local. 
+                            Diseño que honra la tradición mientras abraza el futuro.
+                        </p>
+                        <div class="product-price">$95,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Silla Nostalgia Moderna" 
+                                    data-price="95000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">Reciclado</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Biblioteca "Memoria Verde"</h3>
+                        <p class="product-description">
+                            Caldén recuperado con 40% de materiales reciclados. 
+                            Tintes vegetales base agua para un acabado completamente natural.
+                        </p>
+                        <div class="product-price">$420,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Biblioteca Memoria Verde" 
+                                    data-price="420000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">Herencia Viva</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Escritorio "Legado"</h3>
+                        <p class="product-description">
+                            Pieza exclusiva del programa Herencia Viva. 10 años de garantía estructural, 
+                            servicio de restauración incluido.
+                        </p>
+                        <div class="product-price">$365,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Escritorio Legado" 
+                                    data-price="365000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">FSC</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cómoda "Tiempo Presente"</h3>
+                        <p class="product-description">
+                            Algarrobo nativo con herrajes artesanales. 
+                            Optimismo de los 60 con conciencia sustentable del 2025.
+                        </p>
+                        <div class="product-price">$198,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Cómoda Tiempo Presente" 
+                                    data-price="198000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-animate">
+                    <div class="product-image">
+                        <div class="sustainability-badge">Edición Limitada</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Banco "Simplicidad Noble"</h3>
+                        <p class="product-description">
+                            Madera recuperada de demoliciones porteñas. 
+                            Cada pieza única con su propia historia y certificado de trazabilidad.
+                        </p>
+                        <div class="product-price">$145,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" 
+                                    data-product="Banco Simplicidad Noble" 
+                                    data-price="145000">
+                                <i class="fas fa-plus"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 3rem;">
+                <a href="#contacto" class="btn btn-secondary">
+                    <i class="fas fa-palette"></i>
+                    Solicitar Diseño Personalizado
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">NUESTRA FILOSOFÍA</h2>
+                <p class="section-subtitle">
+                    El redescubrimiento de un arte olvidado: crear muebles que no solo sirven una función, 
+                    sino que alimentan el alma.
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text scroll-animate">
+                    <p>
+                        Existimos en la intersección entre <span class="highlight">herencia e innovación</span>, 
+                        donde la calidez del optimismo de los años 60 se encuentra con la conciencia 
+                        de la sustentabilidad del 2025.
+                    </p>
+                    <p>
+                        Cada pieza cuenta una historia de artesanía que honra el pasado mientras abraza el futuro. 
+                        No es solo mobiliario, es una <span class="highlight">filosofía de vida</span>. 
+                        Nuestras piezas envejecen con gracia, desarrollan carácter. 
+                        Cuando inviertes en Hermanos Jota, inviertes en un legado.
+                    </p>
+                    <p>
+                        Trabajamos exclusivamente con <span class="highlight">madera certificada FSC</span> 
+                        de bosques responsables argentinos, priorizando maderas nativas como algarrobo, 
+                        quebracho y caldén. Nuestro compromiso se extiende al uso de acabados naturales, 
+                        proveedores locales y un mínimo del 30% de materiales recuperados en cada pieza.
+                    </p>
+                </div>
+                
+                <div class="about-values scroll-animate">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustentabilidad</h3>
+                        <p class="value-description">
+                            100% madera FSC, acabados naturales, cero plásticos de un solo uso
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3 class="value-title">Artesanía</h3>
+                        <p class="value-description">
+                            Técnicas tradicionales con herramientas modernas, cada pieza única
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="value-title">Herencia Viva</h3>
+                        <p class="value-description">
+                            Garantía de 10 años, servicio de restauración, recompra garantizada
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="value-title">Local</h3>
+                        <p class="value-description">
+                            Proveedores del Gran Buenos Aires, apoyo a la economía local
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section section-alt">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">CONVERSEMOS</h2>
+                <p class="section-subtitle">
+                    ¿Tienes una visión? Hablemos de cómo podemos crear juntos la pieza perfecta para tu espacio.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form scroll-animate">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tipo-consulta">Tipo de Consulta</label>
+                            <select id="tipo-consulta" name="tipo-consulta" style="width: 100%; padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 5px; font-family: var(--font-primary);">
+                                <option value="">Selecciona una opción</option>
+                                <option value="producto-existente">Consulta sobre producto existente</option>
+                                <option value="diseno-personalizado">Diseño personalizado</option>
+                                <option value="restauracion">Servicio de restauración</option>
+                                <option value="herencia-viva">Programa Herencia Viva</option>
+                                <option value="otra">Otra consulta</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Cuéntanos tu proyecto</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tu visión, el espacio, tus necesidades..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info scroll-animate">
+                    <h3>Visitanos en nuestro Taller</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-item-content">
+                                <h4>Showroom & Casa Taller</h4>
+                                <p>
+                                    Av. San Juan 2847<br>
+                                    C1232AAB - Barrio de San Cristóbal<br>
+                                    Ciudad Autónoma de Buenos Aires
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="contact-item-content">
+                                <h4>Horarios de Atención</h4>
+                                <p>
+                                    Lunes a Viernes: 10:00 - 19:00<br>
+                                    Sábados: 10:00 - 14:00<br>
+                                    Domingos: Cerrado
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-item-content">
+                                <h4>Contacto Directo</h4>
+                                <p>
+                                    WhatsApp: +54 11 4567-8900<br>
+                                    Email: info@hermanosjota.com.ar<br>
+                                    Ventas: ventas@hermanosjota.com.ar
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-tools"></i>
+                            <div class="contact-item-content">
+                                <h4>Servicios Especiales</h4>
+                                <p>
+                                    • Consultoría de diseño gratuita<br>
+                                    • Taller de cuidados para clientes<br>
+                                    • Programa de recompra garantizada<br>
+                                    • Certificado de origen y trazabilidad
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hermanos Jota</h3>
+                    <p>
+                        El redescubrimiento de un arte olvidado. Creamos muebles que no solo sirven una función, 
+                        sino que alimentan el alma y se convierten en legado.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/hermanosjota_ba" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/hermanosjota" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/5411456789000" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Nuestros Productos</h3>
+                    <p><a href="#productos">Mesa Artesanal "Herencia"</a></p>
+                    <p><a href="#productos">Silla "Nostalgia Moderna"</a></p>
+                    <p><a href="#productos">Biblioteca "Memoria Verde"</a></p>
+                    <p><a href="#productos">Escritorio "Legado"</a></p>
+                    <p><a href="#contacto">Diseños Personalizados</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <p><a href="#contacto">Programa Herencia Viva</a></p>
+                    <p><a href="#contacto">Servicio de Restauración</a></p>
+                    <p><a href="#contacto">Taller de Cuidados</a></p>
+                    <p><a href="#contacto">Consultoría de Diseño</a></p>
+                    <p><a href="#contacto">Recompra Garantizada</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Compromiso</h3>
+                    <p>🌱 100% Madera Certificada FSC</p>
+                    <p>♻️ 30% Materiales Recuperados</p>
+                    <p>🏠 Proveedores Locales</p>
+                    <p>🚫 Cero Plásticos Desechables</p>
+                    <p>🛡️ Garantía de 10 Años</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Hermanos Jota. Todos los derechos reservados. | Buenos Aires, Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <p style="text-align: center; color: var(--texto-claro); padding: 2rem;">
+                Tu carrito está vacío<br>
+                <small>Agrega productos para comenzar</small>
+            </p>
+        </div>
+        
+        <div class="cart-total" id="cart-total" style="display: none;">
+            <div class="cart-total-amount">
+                <span>Total:</span>
+                <span id="total-amount">$0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;" onclick="checkout()">
+                <i class="fas fa-credit-card"></i>
+                Finalizar Compra
+            </button>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="contactWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                Consultar por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease;"></div>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+        let cartCount = 0;
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Cart toggle
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const closeCart = document.getElementById('close-cart');
+
+        function openCart() {
+            cartSidebar.classList.add('open');
+            cartOverlay.style.opacity = '1';
+            cartOverlay.style.visibility = 'visible';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCartSidebar() {
+            cartSidebar.classList.remove('open');
+            cartOverlay.style.opacity = '0';
+            cartOverlay.style.visibility = 'hidden';
+            document.body.style.overflow = 'auto';
+        }
+
+        cartToggle.addEventListener('click', openCart);
+        closeCart.addEventListener('click', closeCartSidebar);
+        cartOverlay.addEventListener('click', closeCartSidebar);
+
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productName = e.target.getAttribute('data-product');
+                const productPrice = parseInt(e.target.getAttribute('data-price'));
+                
+                addToCart(productName, productPrice);
+                
+                // Visual feedback
+                e.target.innerHTML = '<i class="fas fa-check"></i> Agregado';
+                e.target.style.background = 'var(--verde-salvia)';
+                
+                setTimeout(() => {
+                    e.target.innerHTML = '<i class="fas fa-plus"></i> Agregar al Carrito';
+                    e.target.style.background = 'var(--siena-tostado)';
+                }, 2000);
+            });
+        });
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCountElement = document.getElementById('cart-count');
+            const totalAmountElement = document.getElementById('total-amount');
+            
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = cartCount;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <p style="text-align: center; color: var(--texto-claro); padding: 2rem;">
+                        Tu carrito está vacío<br>
+                        <small>Agrega productos para comenzar</small>
+                    </p>
+                `;
+                cartTotal.style.display = 'none';
+            } else {
+                const cartHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <i class="fas fa-chair"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">${item.price.toLocaleString()}</div>
+                            <div style="font-size: 0.8rem; color: var(--texto-claro);">Cantidad: ${item.quantity}</div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background: none; border: none; color: var(--texto-claro); cursor: pointer; padding: 0.5rem;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+                
+                cartItems.innerHTML = cartHTML;
+                cartTotal.style.display = 'block';
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                totalAmountElement.textContent = `${total.toLocaleString()}`;
+            }
+        }
+
+        // Contact form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const nombre = formData.get('nombre');
+            const email = formData.get('email');
+            const telefono = formData.get('telefono');
+            const tipoConsulta = formData.get('tipo-consulta');
+            const mensaje = formData.get('mensaje');
+            
+            // Simulate form submission
+            alert(`¡Gracias ${nombre}! Hemos recibido tu consulta y nos pondremos en contacto contigo pronto.`);
+            e.target.reset();
+        });
+
+        // WhatsApp integration
+        function contactWhatsApp() {
+            const cartSummary = cart.map(item => 
+                `• ${item.name} (${item.quantity}x) - ${(item.price * item.quantity).toLocaleString()}`
+            ).join('\n');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            const message = encodeURIComponent(`¡Hola! Me interesa consultar sobre los siguientes productos de Hermanos Jota:
+
+${cartSummary}
+
+Total: ${total.toLocaleString()}
+
+¿Podrían brindarme más información sobre disponibilidad y tiempos de entrega?
+
+¡Gracias!`);
+            
+            window.open(`https://wa.me/5411456789000?text=${message}`, '_blank');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            
+            alert('¡Gracias por tu interés! Te redirigiremos a WhatsApp para finalizar tu compra con asesoramiento personalizado.');
+            contactWhatsApp();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(245, 230, 211, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--alabastro-calido)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>
+
+                
