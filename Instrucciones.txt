@@ -1,5 +1,7 @@
 Para probar el Backend:
 
+En la terminal de /hermanos-jota-backend
+
 npm run dev
 
 Probar endpoints:
@@ -17,5 +19,7 @@ Probar endpoints:
    curl http://localhost:3001/api/categorias
 
 Para probar el Front:
+
+En la terminal de /hermanos-jota-frontend
 
 npm start
