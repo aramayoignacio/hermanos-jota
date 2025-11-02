@@ -2,10 +2,11 @@
 
 Para probar el Backend:
 
-En la terminal de /hermanos-jota-backend:
+En la terminal de /hermanos-jota-backend crear archivo .env:
 
-#crear archivo .env
 mkdir .env
+
+pnpm run seed
 
 Seguir el ejemplo del archivo .env.example y completar los datos requeridos para configurar las variables de entorno, luego:
 
