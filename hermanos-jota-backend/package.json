@@ -1,25 +1,29 @@
 {
-    "name": "hermanos-jota-backend",
-    "version": "1.0.0",
-    "description": "API REST para Hermanos Jota - Muebles Artesanales",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js",
-        "dev": "nodemon server.js"
-    },
-    "keywords": [
-        "express",
-        "api",
-        "rest",
-        "muebles"
-    ],
-    "author": "Hermanos Jota",
-    "license": "MIT",
-    "dependencies": {
-        "cors": "^2.8.5",
-        "express": "^4.21.2"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.10"
-    }
+  "name": "hermanos-jota-backend-mongodb",
+  "version": "2.0.0",
+  "description": "API REST con MongoDB para Hermanos Jota",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node scripts/seedDatabase.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "api",
+    "rest"
+  ],
+  "author": "Hermanos Jota",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^7.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }

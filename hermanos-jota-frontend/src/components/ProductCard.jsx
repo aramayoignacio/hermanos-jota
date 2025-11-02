@@ -1,22 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function ProductCard({ producto, onSelectProduct }) {
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat('es-AR', {
-      style: 'currency',
-      currency: 'ARS',
-      minimumFractionDigits: 0
-    }).format(price);
-  };
-
+function ProductCard({ producto }) {
   return (
-    <div className="product-card" onClick={() => onSelectProduct(producto)}>
+    <div className="product-card">
       <div className="product-image">
         <div className="sustainability-badge">{producto.certificacion}</div>
         {!producto.enStock && (
           <div className="out-of-stock-badge">Agotado</div>
         )}
       </div>
+      
       <div className="product-info">
         <h3 className="product-title">{producto.nombre}</h3>
         <p className="product-description">
@@ -27,11 +21,13 @@ function ProductCard({ producto, onSelectProduct }) {
             <i className="fas fa-tree"></i> {producto.material}
           </span>
         </div>
-        <div className="product-price">{formatPrice(producto.precio)}</div>
-        <button className="btn btn-primary btn-small">
+        <div className="product-price">
+          ${producto.precio.toLocaleString('es-AR')}
+        </div>
+        <Link to={`/productos/${producto._id}`} className="btn btn-primary btn-small">
           <i className="fas fa-eye"></i>
           Ver Detalles
-        </button>
+        </Link>
       </div>
     </div>
   );

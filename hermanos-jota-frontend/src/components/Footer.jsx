@@ -11,36 +11,23 @@ function Footer() {
               El redescubrimiento de un arte olvidado. Creamos muebles que 
               alimentan el alma y se convierten en legado.
             </p>
-            <div className="footer-social">
-              <a href="https://instagram.com/hermanosjota_ba" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="https://facebook.com/hermanosjota" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="https://wa.me/5411456789000" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-whatsapp"></i>
-              </a>
-            </div>
           </div>
-
+          
           <div className="footer-section">
             <h3>Compromiso</h3>
-            <p>100% Madera Certificada FSC</p>
-            <p>30% Materiales Recuperados</p>
-            <p>Proveedores Locales</p>
-            <p>Garantía de 10 Años</p>
+            <p>🌱 100% Madera Certificada FSC</p>
+            <p>♻️ 30% Materiales Recuperados</p>
+            <p>🛡️ Garantía de 10 Años</p>
           </div>
-
+          
           <div className="footer-section">
-            <h3>Servicios</h3>
-            <p>Programa Herencia Viva</p>
-            <p>Servicio de Restauración</p>
-            <p>Taller de Cuidados</p>
-            <p>Diseños Personalizados</p>
+            <h3>Contacto</h3>
+            <p>📍 Av. San Juan 2847, CABA</p>
+            <p>📞 +54 11 4567-8900</p>
+            <p>✉️ info@hermanosjota.com.ar</p>
           </div>
         </div>
-
+        
         <div className="footer-bottom">
           <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
         </div>

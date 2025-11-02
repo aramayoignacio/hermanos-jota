@@ -1,40 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Navbar({ cartCount, onNavigate }) {
+function Navbar() {
   return (
     <header className="header">
       <nav className="nav-container">
-        <button 
-          onClick={() => onNavigate('home')} 
-          className="logo-button"
-        >
-          <h1 className="logo">HERMANOS JOTA</h1>
-        </button>
+        <Link to="/" className="logo">HERMANOS JOTA</Link>
         
         <ul className="nav-menu">
-          <li>
-            <button onClick={() => onNavigate('home')} className="nav-link">
-              Inicio
-            </button>
-          </li>
-          <li>
-            <button onClick={() => onNavigate('productos')} className="nav-link">
-              Productos
-            </button>
-          </li>
-          <li>
-            <button onClick={() => onNavigate('contacto')} className="nav-link">
-              Contacto
-            </button>
-          </li>
-          <li>
-            <div className="cart-icon">
-              <i className="fas fa-shopping-cart"></i>
-              {cartCount > 0 && (
-                <span className="cart-count">{cartCount}</span>
-              )}
-            </div>
-          </li>
+          <li><Link to="/">Inicio</Link></li>
+          <li><Link to="/productos">Productos</Link></li>
+          <li><Link to="/contacto">Contacto</Link></li>
+          <li><Link to="/admin/crear-producto" className="nav-admin">
+            <i className="fas fa-plus-circle"></i> Agregar Producto
+          </Link></li>
         </ul>
       </nav>
     </header>
