@@ -2,13 +2,12 @@
 
 Para probar el Backend:
 
-En la terminal de /hermanos-jota-backend crear archivo .env:
+En la terminal de /hermanos-jota-backend crear archivo .env. 
+Seguir el ejemplo del archivo .env.example y completar los datos requeridos para configurar las variables de entorno, luego:
 
-mkdir .env
+pnpm install
 
 pnpm run seed
-
-Seguir el ejemplo del archivo .env.example y completar los datos requeridos para configurar las variables de entorno, luego:
 
 pnpm run dev
 
@@ -29,5 +28,7 @@ Probar endpoints:
 Para probar el Front:
 
 En la terminal de /hermanos-jota-frontend
+
+pnpm install 
 
 pnpm start
