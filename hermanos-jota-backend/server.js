@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 // CORS
 app.use(cors({
-  origin: 'https://hermanos-jota-y1ew.onrender.com/api',
+  origin: 'https://hermanos-jota-jet.vercel.app',
   credentials: true
 }));
 
