@@ -34,7 +34,7 @@ function Contacto() {
   };
 
   return (
-    <section className="section section-alt contacto-page">
+    <section className="section section-alt page-container">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">CONVERSEMOS</h2>
@@ -43,7 +43,7 @@ function Contacto() {
           </p>
         </div>
 
-        <div className="contact-content">
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem' }}>
           <div className="contact-form">
             {submitted ? (
               <div className="success-message">
@@ -127,33 +127,46 @@ function Contacto() {
             )}
           </div>
 
-          <div className="contact-info">
-            <h3>Visitanos en nuestro Taller</h3>
+          <div>
+            <h3 style={{ 
+              fontFamily: 'var(--font-secondary)', 
+              color: 'var(--siena-tostado)', 
+              fontSize: '1.8rem', 
+              marginBottom: '1.5rem' 
+            }}>
+              Visitanos en nuestro Taller
+            </h3>
             
-            <div className="contact-card">
-              <i className="fas fa-map-marker-alt"></i>
-              <h4>Showroom & Casa Taller</h4>
-              <p>
+            <div className="contact-form" style={{ marginBottom: '1rem' }}>
+              <i className="fas fa-map-marker-alt" style={{ fontSize: '1.5rem', color: 'var(--verde-salvia)', marginBottom: '0.5rem' }}></i>
+              <h4 style={{ color: 'var(--siena-tostado)', marginBottom: '0.5rem', fontWeight: '600' }}>
+                Showroom & Casa Taller
+              </h4>
+              <p style={{ color: 'var(--texto-claro)' }}>
                 Av. San Juan 2847<br />
                 C1232AAB - Barrio de San Cristóbal<br />
                 Ciudad Autónoma de Buenos Aires
               </p>
             </div>
 
-            <div className="contact-card">
-              <i className="fas fa-clock"></i>
-              <h4>Horarios de Atención</h4>
-              <p>
+            <div className="contact-form" style={{ marginBottom: '1rem' }}>
+              <i className="fas fa-clock" style={{ fontSize: '1.5rem', color: 'var(--verde-salvia)', marginBottom: '0.5rem' }}></i>
+              <h4 style={{ color: 'var(--siena-tostado)', marginBottom: '0.5rem', fontWeight: '600' }}>
+                Horarios de Atención
+              </h4>
+              <p style={{ color: 'var(--texto-claro)' }}>
                 Lunes a Viernes: 10:00 - 19:00<br />
                 Sábados: 10:00 - 14:00<br />
                 Domingos: Cerrado
               </p>
             </div>
 
-            <div className="contact-card">
-              <i className="fas fa-phone"></i>
-              <h4>Contacto Directo</h4>
-              <p>
+            <div className="contact-form">
+              <i className="fas fa-phone" style={{ fontSize: '1.5rem', color: 'var(--verde-salvia)', marginBottom: '0.5rem' }}></i>
+              <h4 style={{ color: 'var(--siena-tostado)', marginBottom: '0.5rem', fontWeight: '600' }}>
+                Contacto Directo
+              </h4>
+              <p style={{ color: 'var(--texto-claro)' }}>
                 WhatsApp: +54 11 4567-8900<br />
                 Email: info@hermanosjota.com.ar<br />
                 Ventas: ventas@hermanosjota.com.ar

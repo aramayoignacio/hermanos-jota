@@ -67,16 +67,16 @@ function CrearProducto() {
   };
 
   return (
-    <section className="section crear-producto-page">
+    <section className="section page-container">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">CREAR NUEVO PRODUCTO</h2>
           <p className="section-subtitle">
-            Completa los campos para agregar un producto al catálogo
+            Completa los campos para agregar un producto
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="producto-form">
+        <form onSubmit={handleSubmit} className="contact-form" style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="nombre">Nombre del Producto *</label>
@@ -249,13 +249,14 @@ function CrearProducto() {
             </div>
           </div>
 
-          <div className="form-checkbox">
-            <label>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
               <input
                 type="checkbox"
                 name="enStock"
                 checked={formData.enStock}
                 onChange={handleChange}
+                style={{ width: '20px', height: '20px' }}
               />
               <span>Producto en stock</span>
             </label>

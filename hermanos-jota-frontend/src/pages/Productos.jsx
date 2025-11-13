@@ -28,7 +28,7 @@ function Productos() {
 
   if (error) {
     return (
-      <div className="error-container">
+      <div className="error-container page-container">
         <i className="fas fa-exclamation-triangle"></i>
         <h3>Error al cargar los productos</h3>
         <p>{error}</p>
@@ -40,7 +40,7 @@ function Productos() {
   }
 
   return (
-    <section className="section section-alt productos-page">
+    <section className="section section-alt page-container">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">NUESTRA COLECCIÓN</h2>

@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { getProducto, deleteProducto } from '../services/api';
 
 function ProductoDetalle() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addItem } = useCart();
+  const { user } = useAuth();
+  
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cantidad, setCantidad] = useState(1);
+  const [agregado, setAgregado] = useState(false);
 
   useEffect(() => {
     cargarProducto();
@@ -24,6 +31,15 @@ function ProductoDetalle() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleAddToCart = () => {
+    addItem(producto, cantidad);
+    setAgregado(true);
+    
+    setTimeout(() => {
+      setAgregado(false);
+    }, 2000);
   };
 
   const handleEliminar = async () => {
@@ -46,7 +62,7 @@ function ProductoDetalle() {
 
   if (error) {
     return (
-      <div className="error-container">
+      <div className="error-container page-container">
         <i className="fas fa-exclamation-triangle"></i>
         <h3>Error al cargar el producto</h3>
         <p>{error}</p>
@@ -59,7 +75,7 @@ function ProductoDetalle() {
 
   if (!producto) {
     return (
-      <div className="error-container">
+      <div className="error-container page-container">
         <h3>Producto no encontrado</h3>
         <Link to="/productos" className="btn btn-primary">
           Volver al catálogo
@@ -69,7 +85,7 @@ function ProductoDetalle() {
   }
 
   return (
-    <section className="section product-detail-section">
+    <section className="section page-container">
       <div className="container">
         <Link to="/productos" className="btn btn-secondary back-button">
           <i className="fas fa-arrow-left"></i>
@@ -128,19 +144,65 @@ function ProductoDetalle() {
               )}
             </div>
 
+            {producto.enStock && (
+              <div className="quantity-selector">
+                <label>Cantidad:</label>
+                <div className="quantity-controls">
+                  <button
+                    className="quantity-btn"
+                    onClick={() => setCantidad(Math.max(1, cantidad - 1))}
+                  >
+                    <i className="fas fa-minus"></i>
+                  </button>
+                  <span className="quantity-value">{cantidad}</span>
+                  <button
+                    className="quantity-btn"
+                    onClick={() => setCantidad(Math.min(producto.stock, cantidad + 1))}
+                  >
+                    <i className="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="detail-actions">
-              <button className="btn btn-primary btn-large">
+              {producto.enStock && (
+                <button
+                  onClick={handleAddToCart}
+                  className="btn btn-primary btn-large"
+                  style={{
+                    background: agregado ? 'var(--verde-salvia)' : 'var(--siena-tostado)',
+                    flex: 1
+                  }}
+                >
+                  {agregado ? (
+                    <>
+                      <i className="fas fa-check"></i>
+                      Agregado al Carrito
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-shopping-cart"></i>
+                      Añadir al Carrito
+                    </>
+                  )}
+                </button>
+              )}
+              
+              <button className="btn btn-secondary btn-large" style={{ flex: 1 }}>
                 <i className="fab fa-whatsapp"></i>
-                Consultar por WhatsApp
+                WhatsApp
               </button>
               
-              <button 
-                onClick={handleEliminar}
-                className="btn btn-danger btn-large"
-              >
-                <i className="fas fa-trash"></i>
-                Eliminar Producto
-              </button>
+              {user?.rol === 'admin' && (
+                <button 
+                  onClick={handleEliminar}
+                  className="btn btn-danger"
+                >
+                  <i className="fas fa-trash"></i>
+                  Eliminar
+                </button>
+              )}
             </div>
 
             <div className="product-meta">
