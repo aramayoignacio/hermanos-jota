@@ -23,10 +23,28 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS
+// CORS - CONFIGURACIÓN PARA PRODUCCIÓN Y DESARROLLO
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: 'https://hermanos-jota-jet.vercel.app',
-  credentials: true
+  origin: function(origin, callback) {
+    // Permitir requests sin origin (mobile apps, Postman, curl, etc)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.some(allowed => origin?.includes(allowed))) {
+      callback(null, true);
+    } else {
+      console.log('❌ Origin bloqueado por CORS:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Parsear JSON
@@ -37,6 +55,11 @@ app.use(express.urlencoded({ extended: true }));
 // RUTAS
 // ========================================
 
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // Ruta de bienvenida
 app.get('/', (req, res) => {
   res.json({
@@ -44,13 +67,14 @@ app.get('/', (req, res) => {
     version: '3.0.0',
     database: 'MongoDB Atlas',
     autenticacion: 'JWT',
+    ambiente: process.env.NODE_ENV || 'development',
     endpoints: {
       productos: {
         listar: 'GET /api/productos',
         obtener: 'GET /api/productos/:id',
-        crear: 'POST /api/productos',
-        actualizar: 'PUT /api/productos/:id',
-        eliminar: 'DELETE /api/productos/:id'
+        crear: 'POST /api/productos (protegido)',
+        actualizar: 'PUT /api/productos/:id (protegido)',
+        eliminar: 'DELETE /api/productos/:id (protegido)'
       },
       autenticacion: {
         registro: 'POST /api/auth/registro',
@@ -90,11 +114,11 @@ app.use((req, res) => {
 
 // Manejador de errores global
 app.use((err, req, res, next) => {
-  console.error('❌ Error:', err.stack);
+  console.error('❌ Error:', err.message);
   res.status(err.status || 500).json({
     success: false,
     mensaje: err.message || 'Error interno del servidor',
-    error: process.env.NODE_ENV === 'development' ? err.stack : {}
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   });
 });
 
@@ -102,13 +126,14 @@ app.use((err, req, res, next) => {
 // INICIAR SERVIDOR
 // ========================================
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('========================================');
   console.log('🚀 Servidor Express + MongoDB + JWT');
   console.log('========================================');
-  console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`✅ Servidor corriendo en puerto ${PORT}`);
   console.log(`🗄️  Base de datos: MongoDB Atlas`);
   console.log(`🔐 Autenticación: JWT`);
   console.log(`🌍 Entorno: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🌐 CORS habilitado para: ${allowedOrigins.join(', ')}`);
   console.log('========================================');
 });
